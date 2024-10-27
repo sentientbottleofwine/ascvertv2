@@ -32,3 +32,24 @@ cmake .
 make
 ```
 If you get a linker error please remember to have the listed dependencies installed
+## Usage
+```
+Usage: ascvert [--help] [--version] [[--image VAR]|[--video VAR]] [--factor VAR] [[--short]|[--custom VAR]] [--reverse] [--loop] [--color]
+
+Optional arguments:
+  -h, --help     shows help message and exits
+  -v, --version  prints version information and exits
+  -i, --image    Path to an image
+  -v, --video    Path to a video
+  -f, --factor   Use a custom scale factor
+  -s, --short    Use a shorter charset. Improves sometimes contrast.
+  -c, --custom   Use a custom character set
+  -r, --reverse  Reverse the charset
+  -l, --loop     Loop a video
+  -C, --color    Use colors
+```
+To show a video in color you can do:
+```sh
+./ascvert -v examples/mandelbrotsequence.mp4 -C
+
+```
