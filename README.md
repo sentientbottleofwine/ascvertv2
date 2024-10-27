@@ -24,10 +24,6 @@ So on arch:
 ```sh
 sudo pacman -S vtk glew hdf5 qt5-base qt6-base fmt opencv
 ```
-On fedora:
-```sh
-sudo dnf install vtk glew hdf5 qt5 qt6 fmt opencv 
-```
 ## Build
 ```sh
 git clone https://github.com/sentientbottleofwine/ascvertv2
