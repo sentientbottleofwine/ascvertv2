@@ -22,7 +22,7 @@ This is because not only will opencv take a lot of time to build unlike download
 Opencv does nott officialy support FetchContent in cmake.
 So on arch:
 ```sh
-sudo pacman -S vtk glew hdf5 qt5-base qt6-base fmt opencv
+sudo pacman -S base-devel vtk glew hdf5 qt5-base qt6-base fmt opencv
 ```
 ## Build
 ```sh
