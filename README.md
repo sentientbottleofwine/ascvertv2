@@ -6,12 +6,15 @@ Currently only linux is officialy supported(You might be able to get it running 
 
 ## Depenedencies
 ```
-g++(Build)
-cmake(Build)
-vtk
-glew
-hdf5
+g++
+cmake
 opencv
+    vtk
+    glew
+    hdf5
+    qt5
+    qt6
+    fmt
 argparse(automatically built and downloaded for you)
 ```
 Only argparse is downloaded automatically.
@@ -19,15 +22,11 @@ This is because not only will opencv take a lot of time to build unlike download
 Opencv does nott officialy support FetchContent in cmake.
 So on arch:
 ```sh
-sudo pacman -S vtk glew hdf5 opencv
+sudo pacman -S vtk glew hdf5 qt5-base qt6-base fmt opencv
 ```
 On fedora:
 ```sh
-sudo dnf install vtk glew hdf5 opencv
-```
-On ubuntu:
-```sh
-sudo apt install vtk9 libvtk9 glew hdf5
+sudo dnf install vtk glew hdf5 qt5 qt6 fmt opencv 
 ```
 ## Build
 ```sh
