@@ -8,7 +8,7 @@ std::unique_ptr<ac::Ascii_Gen> parse_args(int argc, char* argv[]);
 
 int main(int argc, char* argv[]){
     try {
-	    std::unique_ptr<ac::Ascii_Gen> ascii_gen_p = std::move(parse_args(argc, argv));
+	    std::unique_ptr<ac::Ascii_Gen> ascii_gen_p = parse_args(argc, argv);
         ascii_gen_p->display();
     } catch(std::exception &e) {
         std::cerr << e.what();
@@ -57,15 +57,15 @@ std::unique_ptr<ac::Ascii_Gen> parse_args(int argc, char* argv[]) {
     arguments.parse_args(argc, argv);
 
     if(auto img_opt = arguments.present("-i")) {
-        ascii_gen_p = std::make_unique<ac::Ascii_Gen>(*img_opt, ac::Ascii_Gen::VIDEO);
+        ascii_gen_p = std::make_unique<ac::Ascii_Gen>(*img_opt, ac::Ascii_Gen::IMAGE);
         if(arguments["-l"] == true)
-            std::runtime_error("Can't loop an image\n");
+            throw std::runtime_error("Can't loop an image\n");
     }
 
     if(auto video_opt = arguments.present("-v")) {
+        ascii_gen_p = std::make_unique<ac::Ascii_Gen>(*video_opt, ac::Ascii_Gen::VIDEO);
         if(arguments["-l"] == true)
             ascii_gen_p->set_loop();
-        ascii_gen_p = std::make_unique<ac::Ascii_Gen>(*video_opt, ac::Ascii_Gen::VIDEO);
     }
 
     if(auto factor = arguments.present<double>("-f"))
