@@ -25,6 +25,15 @@ So on arch:
 sudo pacman -S base-devel vtk glew hdf5 qt5-base qt6-base fmt opencv
 ```
 ## Build
+
+### Docker
+```sh
+docker build . -t ascvert_image
+docker run -t -i ascvert_image
+```
+After executing the second command you will get a shell in which you can run the program.
+
+### Normal build
 ```sh
 git clone https://github.com/sentientbottleofwine/ascvertv2
 cd ascvertv2/
@@ -32,6 +41,7 @@ cmake .
 make
 ```
 If you get a linker error please remember to have the listed dependencies installed
+
 ## Usage
 ```
 Usage: ascvert [--help] [--version] [[--image VAR]|[--video VAR]] [--factor VAR] [[--short]|[--custom VAR]] [--reverse] [--loop] [--color]
